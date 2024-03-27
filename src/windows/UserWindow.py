@@ -14,21 +14,48 @@ import pandas as pd
 import datetime as dat
 
 import src.main.PATH as path
-import src.main.constants as cst
 import src.main.utils as utl
 
 
+DATA_FOLD = path.DATA_FOLD
 TMP_FOLD = path.TMP_FOLD
 OUT_FOLD = path.OUT_FOLD
 
 CUR_LOGIN_DATA_PATH = path.CUR_LOGIN_DATA_PATH
-STATION_DATA_FOLD = path.STATION_DATA_FOLD
-OUT_TABLE_PATH = path.OUT_TABLE_PATH
-PLOT_TABLE_PATH = path.PLOT_TABLE_PATH
-OUT_PICT1_PATH = path.OUT_PICT1_PATH
-OUT_PICT2_PATH = path.OUT_PICT2_PATH
 
-STATION_DATA_FILE_COLUMNS = cst.STATION_DATA_FILE_COLUMNS
+STATION_DATA_FOLD = f"{DATA_FOLD}/example"
+OUT_TABLE_PATH = f"{OUT_FOLD}/table.csv"
+PLOT_TABLE_PATH = f"{TMP_FOLD}/plot-table.csv"
+OUT_PICT1_PATH = f"{OUT_FOLD}/1.png"
+OUT_PICT2_PATH = f"{OUT_FOLD}/2.png"
+
+STATION_DATA_FILE_COLUMNS = ["Measurement start time",
+                             "Measurement end time",
+                             "Reactive power phase A on",
+                             "Reactive power phase B on",
+                             "Reactive power phase C on",
+                             "Active power phase A on",
+                             "Active power phase B on",
+                             "Active power phase C on",
+                             "Voltage phase A on",
+                             "Voltage phase B on",
+                             "Voltage phase C on",
+                             "Cosine phase A on",
+                             "Cosine phase B on",
+                             "Cosine phase C on",
+                             "Reactive power phase A off",
+                             "Reactive power phase B off",
+                             "Reactive power phase C off",
+                             "Active power phase A off",
+                             "Active power phase B off",
+                             "Active power phase C off",
+                             "Voltage phase A off",
+                             "Voltage phase B off",
+                             "Voltage phase C off",
+                             "Cosine phase A off",
+                             "Cosine phase B off",
+                             "Cosine phase C off",
+                             "Number of powered blocks"]
 
 
 class Ui_UserWindow(object):

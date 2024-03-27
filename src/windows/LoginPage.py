@@ -5,10 +5,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import src.main.PATH as path
 
 
+DATA_FOLD = path.DATA_FOLD
 TMP_FOLD = path.TMP_FOLD
 
-DATA_BACKGROUND_PATH = path.DATA_BACKGROUND_PATH
-RESIZED_BACKGROUND_PATH = path.RESIZED_BACKGROUND_PATH
+DATA_BACKGROUND_PATH = f"{DATA_FOLD}/img/login-background.jpg"
+RESIZED_BACKGROUND_PATH = f"{TMP_FOLD}/login-background.jpg"
 
 
 class Ui_MainWindow(object):
