@@ -12,16 +12,16 @@ DATA_BACKGROUND_PATH = f"{DATA_FOLD}/img/login-background.jpg"
 RESIZED_BACKGROUND_PATH = f"{TMP_FOLD}/login-background.jpg"
 
 
-class Ui_MainWindow(object):
+class UiLoginWindow(object):
 
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1280, 800)
-        MainWindow.setMinimumSize(QtCore.QSize(1280, 800))
-        MainWindow.setMaximumSize(QtCore.QSize(1280, 800))
-        MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+    def setup_ui(self, login_window):
+        login_window.setObjectName("login_window")
+        login_window.resize(1280, 800)
+        login_window.setMinimumSize(QtCore.QSize(1280, 800))
+        login_window.setMaximumSize(QtCore.QSize(1280, 800))
+        login_window.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
 
-        self.main_widget = QtWidgets.QWidget(MainWindow)
+        self.main_widget = QtWidgets.QWidget(login_window)
         self.main_widget.setGeometry(QtCore.QRect(0, 0, 1280, 800))
         self.main_widget.setObjectName("main_widget")
 
@@ -52,13 +52,13 @@ class Ui_MainWindow(object):
 
         self.auth_label = QtWidgets.QLabel(self.main_widget)
         self.auth_label.setGeometry(QtCore.QRect(535, 335, 210, 35))
-        self.auth_label.setStyleSheet("font: 63 25pt\"Yu Gothic UI Semibold\";\n"
+        self.auth_label.setStyleSheet("font: 25pt\"Yu Gothic UI Semibold\";\n"
                                       "color: rgb(255, 255, 255);")
         self.auth_label.setObjectName("auth_label")
 
         self.login_label = QtWidgets.QLabel(self.main_widget)
         self.login_label.setGeometry(QtCore.QRect(490, 425, 130, 30))
-        self.login_label.setStyleSheet("font: 63 15pt \"Yu Gothic UI Semibold\";\n"
+        self.login_label.setStyleSheet("font: 15pt \"Yu Gothic UI Semibold\";\n"
                                        "color: rgb(255, 255, 255);")
         self.login_label.setObjectName("login_label")
 
@@ -66,12 +66,12 @@ class Ui_MainWindow(object):
         self.login_line.setGeometry(QtCore.QRect(580, 420, 210, 40))
         self.login_line.setStyleSheet("border-radius: 15px;\n"
                                       "padding: 0px 10px 0px 10px;\n"
-                                      "font: 63 15pt \"Yu Gothic UI Semibold\";")
+                                      "font: 15pt \"Yu Gothic UI Semibold\";")
         self.login_line.setObjectName("login_line")
 
         self.passwd_label = QtWidgets.QLabel(self.main_widget)
         self.passwd_label.setGeometry(QtCore.QRect(490, 485, 160, 30))
-        self.passwd_label.setStyleSheet("font: 63 15pt \"Yu Gothic UI Semibold\";\n"
+        self.passwd_label.setStyleSheet("font: 15pt \"Yu Gothic UI Semibold\";\n"
                                         "color: rgb(255, 255, 255);")
         self.passwd_label.setObjectName("passwd_label")
 
@@ -79,26 +79,28 @@ class Ui_MainWindow(object):
         self.passwd_line.setGeometry(QtCore.QRect(580, 480, 210, 40))
         self.passwd_line.setStyleSheet("border-radius: 15px;\n"
                                        "padding: 0px 10px 0px 10px;\n"
-                                       "font: 63 15pt \"Yu Gothic UI Semibold\";")
+                                       "font: 15pt \"Yu Gothic UI Semibold\";")
         self.passwd_line.setObjectName("passwd_line")
 
         self.entry_button = QtWidgets.QPushButton(self.main_widget)
         self.entry_button.setGeometry(QtCore.QRect(510, 570, 250, 50))
         self.entry_button.setStyleSheet("border-radius: 15px;\n"
                                         "background-color: rgb(47, 142, 192);\n"
-                                        "font: 63 16pt \"Yu Gothic UI Semibold\";\n"
+                                        "font: 16pt \"Yu Gothic UI Semibold\";\n"
                                         "color: rgb(255, 255, 255);")
         self.entry_button.setObjectName("entry_button")
 
-        MainWindow.setCentralWidget(self.main_widget)
-        self.retranslate_ui(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        login_window.setCentralWidget(self.main_widget)
+        self.retranslate_ui(login_window)
+        QtCore.QMetaObject.connectSlotsByName(login_window)
 
-    def retranslate_ui(self, MainWindow):
+    def retranslate_ui(self, login_window):
         win_translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(win_translate("MainWindow", "MainWindow"))
-        self.header_label.setText(win_translate("MainWindow", "Мониторинг комплекса энергосбережения"))
-        self.auth_label.setText(win_translate("MainWindow", "Авторизация"))
-        self.login_label.setText(win_translate("MainWindow", "Логин:"))
-        self.passwd_label.setText(win_translate("MainWindow", "Пароль:"))
-        self.entry_button.setText(win_translate("MainWindow", "Вход"))
+
+        login_window.setWindowTitle(win_translate("login_window", "login_window"))
+
+        self.header_label.setText(win_translate("login_window", "Мониторинг комплекса энергосбережения"))
+        self.auth_label.setText(win_translate("login_window", "Авторизация"))
+        self.login_label.setText(win_translate("login_window", "Логин:"))
+        self.passwd_label.setText(win_translate("login_window", "Пароль:"))
+        self.entry_button.setText(win_translate("login_window", "Вход"))

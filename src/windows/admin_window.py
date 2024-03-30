@@ -13,22 +13,22 @@ ADMIN_DATA_FILE_PATH = path.ADMIN_DATA_FILE_PATH
 USER_DATA_FILE_PATH = path.USER_DATA_FILE_PATH
 
 DATA_BACKGROUND_PATH = f"{DATA_FOLD}/img/work-background.jpeg"
-RESIZED_BACKGROUND_PATH = f"{TMP_FOLD}/work-background.jpeg"
+RESIZED_BACKGROUND_PATH = f"{TMP_FOLD}/admin-background.jpeg"
 
 STATION_AMOUNT = 3
 ADMIN_TABLE_ROWS = 20
 ADMIN_TABLE_COLUMNS = 3
 
 
-class Ui_AdminWindow(object):
+class UiAdminWindow(object):
 
-    def setupUi(self, AdminWindow):
-        AdminWindow.setObjectName("AdminWindow")
-        AdminWindow.resize(922, 540)
-        AdminWindow.setMinimumSize(QtCore.QSize(922, 540))
-        AdminWindow.setMaximumSize(QtCore.QSize(922, 540))
+    def setup_ui(self, admin_window):
+        admin_window.setObjectName("admin_window")
+        admin_window.resize(922, 540)
+        admin_window.setMinimumSize(QtCore.QSize(922, 540))
+        admin_window.setMaximumSize(QtCore.QSize(922, 540))
 
-        self.main_widget = QtWidgets.QWidget(AdminWindow)
+        self.main_widget = QtWidgets.QWidget(admin_window)
         self.main_widget.setGeometry(QtCore.QRect(0, 0, 922, 540))
         self.main_widget.setObjectName("main_widget")
 
@@ -52,7 +52,7 @@ class Ui_AdminWindow(object):
         self.login_line.setGeometry(QtCore.QRect(40, 75, 180, 40))
         self.login_line.setStyleSheet("border-radius: 15px;\n"
                                       "padding: 0px 10px 0px 10px;\n"
-                                      "font: 63 10pt \"Yu Gothic UI Semibold\";")
+                                      "font: italic 10pt \"Yu Gothic UI Semibold\";")
         self.login_line.setPlaceholderText("логин")
         self.login_line.textChanged.connect(self.change_font_size)
         self.login_line.setObjectName("login_line")
@@ -61,7 +61,7 @@ class Ui_AdminWindow(object):
         self.passwd_line.setGeometry(QtCore.QRect(40, 125, 180, 40))
         self.passwd_line.setStyleSheet("border-radius: 15px;\n"
                                        "padding: 0px 10px 0px 10px;\n"
-                                       "font: 63 10pt \"Yu Gothic UI Semibold\";")
+                                       "font: italic 10pt \"Yu Gothic UI Semibold\";")
         self.passwd_line.setPlaceholderText("пароль")
         self.passwd_line.textChanged.connect(self.change_font_size)
         self.passwd_line.setObjectName("passwd_line")
@@ -71,7 +71,7 @@ class Ui_AdminWindow(object):
         self.station_line.setGeometry(QtCore.QRect(40, 175, 180, 40))
         self.station_line.setStyleSheet("border-radius: 15px;\n"
                                         "padding: 0px 10px 0px 10px;\n"
-                                        "font: 63 7pt \"Yu Gothic UI Semibold\";")
+                                        "font: italic 7pt \"Yu Gothic UI Semibold\";")
         self.station_line.setPlaceholderText("станции (пусто для администратора)")
         self.station_line.textChanged.connect(self.change_font_size)
         self.station_line.setObjectName("station_line")
@@ -80,7 +80,7 @@ class Ui_AdminWindow(object):
         self.add_button.setGeometry(QtCore.QRect(40, 255, 180, 60))
         self.add_button.setStyleSheet("border-radius: 15px;\n"
                                       "background-color: rgb(112, 112, 112);\n"
-                                      "font: 63 16pt \"Yu Gothic UI Semibold\";\n"
+                                      "font: 16pt \"Yu Gothic UI Semibold\";\n"
                                       "color: rgb(255, 255, 255);")
         self.add_button.clicked.connect(self.fill_table)
         self.add_button.setObjectName("add_button")
@@ -89,15 +89,14 @@ class Ui_AdminWindow(object):
         self.s_n_exit_button.setGeometry(QtCore.QRect(40, 405, 180, 60))
         self.s_n_exit_button.setStyleSheet("border-radius: 15px;\n"
                                            "background-color: rgb(47, 142, 192);\n"
-                                           "font: 63 16pt \"Yu Gothic UI Semibold\";\n"
+                                           "font: 16pt \"Yu Gothic UI Semibold\";\n"
                                            "color: rgb(255, 255, 255);")
         self.s_n_exit_button.clicked.connect(self.save_login_data)
         self.s_n_exit_button.setObjectName("s_n_exit_button")
 
         self.table_widget = QtWidgets.QTableWidget(self.main_widget)
         self.table_widget.setGeometry(QtCore.QRect(260, 0, 482, 540))
-        self.table_widget.setStyleSheet("border-radius: 15px;\n"
-                                        "font: 63 16pt \"Yu Gothic UI Semibold\";")
+        self.table_widget.setStyleSheet("font: 16pt \"Yu Gothic UI Semibold\";")
         self.table_widget.setMaximumSize(QtCore.QSize(482, 540))
         self.table_widget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.table_widget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -121,38 +120,38 @@ class Ui_AdminWindow(object):
 
         self.table_widget.horizontalHeader().setCascadingSectionResizes(False)
 
-        self.retranslateUi(AdminWindow)
-        QtCore.QMetaObject.connectSlotsByName(AdminWindow)
+        self.retranslate_ui(admin_window)
+        QtCore.QMetaObject.connectSlotsByName(admin_window)
 
-    def change_font_size(self, AdminWindow):
+    def change_font_size(self):
         if self.login_line.text() == "":
             self.login_line.setStyleSheet("border-radius: 15px;\n"
                                           "padding: 0px 10px 0px 10px;\n"
-                                          "font: 63 10pt \"Yu Gothic UI Semibold\";")
+                                          "font: italic 10pt \"Yu Gothic UI Semibold\";")
         else:
             self.login_line.setStyleSheet("border-radius: 15px;\n"
                                           "padding: 0px 10px 0px 10px;\n"
-                                          "font: 63 15pt \"Yu Gothic UI Semibold\";")
+                                          "font: 15pt \"Yu Gothic UI Semibold\";")
 
         if self.passwd_line.text() == "":
             self.passwd_line.setStyleSheet("border-radius: 15px;\n"
                                            "padding: 0px 10px 0px 10px;\n"
-                                           "font: 63 10pt \"Yu Gothic UI Semibold\";")
+                                           "font: italic 10pt \"Yu Gothic UI Semibold\";")
         else:
             self.passwd_line.setStyleSheet("border-radius: 15px;\n"
                                            "padding: 0px 10px 0px 10px;\n"
-                                           "font: 63 15pt \"Yu Gothic UI Semibold\";")
+                                           "font: 15pt \"Yu Gothic UI Semibold\";")
 
         if self.station_line.text() == "":
             self.station_line.setStyleSheet("border-radius: 15px;\n"
                                             "padding: 0px 10px 0px 10px;\n"
-                                            "font: 63 7pt \"Yu Gothic UI Semibold\";")
+                                            "font: italic 7pt \"Yu Gothic UI Semibold\";")
         else:
             self.station_line.setStyleSheet("border-radius: 15px;\n"
                                             "padding: 0px 10px 0px 10px;\n"
-                                            "font: 63 15pt \"Yu Gothic UI Semibold\";")
+                                            "font: 15pt \"Yu Gothic UI Semibold\";")
 
-    def fill_table(self, AdminWindow):
+    def fill_table(self):
         win_translate = QtCore.QCoreApplication.translate
 
         new_login = self.login_line.text()
@@ -166,26 +165,29 @@ class Ui_AdminWindow(object):
             if login == "":
                 for column in range(ADMIN_TABLE_COLUMNS):
                     item = self.table_widget.item(row, column)
-                    item.setText(win_translate("AdminWindow", new_content[column]))
+                    item.setText(win_translate("admin_window", new_content[column]))
 
                 break
 
-    def retranslateUi(self, AdminWindow):
+    def retranslate_ui(self, admin_window):
         win_translate = QtCore.QCoreApplication.translate
-        AdminWindow.setWindowTitle(win_translate("AdminWindow", "Form"))
-        self.add_button.setText(win_translate("AdminWindow", "Добавить"))
+
+        admin_window.setWindowTitle(win_translate("admin_window",
+                                                  "admin_window"))
+
+        self.add_button.setText(win_translate("admin_window", "Добавить"))
 
         for row in range(ADMIN_TABLE_ROWS):
             item = self.table_widget.verticalHeaderItem(row)
-            item.setText(win_translate("AdminWindow", str(row + 1)))
+            item.setText(win_translate("admin_window", str(row + 1)))
 
         table_headers = ["Логин", "Пароль", "Станции"]
 
         for column in range(ADMIN_TABLE_COLUMNS):
             item = self.table_widget.horizontalHeaderItem(column)
-            item.setText(win_translate("AdminWindow", table_headers[column]))
+            item.setText(win_translate("admin_window", table_headers[column]))
 
-        self.s_n_exit_button.setText(win_translate("AdminWindow", "Сохранить"))
+        self.s_n_exit_button.setText(win_translate("admin_window", "Сохранить"))
 
         admin_login_file = open(ADMIN_DATA_FILE_PATH)
         admin_data = list(csv.reader(admin_login_file))
@@ -198,7 +200,7 @@ class Ui_AdminWindow(object):
 
             for column in range(ADMIN_TABLE_COLUMNS):
                 item = self.table_widget.item(row - 1, column)
-                item.setText(win_translate("AdminWindow", row_content[column]))
+                item.setText(win_translate("admin_window", row_content[column]))
 
         admin_login_file.close()
 
@@ -215,7 +217,7 @@ class Ui_AdminWindow(object):
 
             for column in range(ADMIN_TABLE_COLUMNS):
                 item = self.table_widget.item(row + admin_amount - 1, column)
-                item.setText(win_translate("AdminWindow", row_content[column]))
+                item.setText(win_translate("admin_window", row_content[column]))
 
         user_login_file.close()
 
